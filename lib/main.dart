@@ -26,17 +26,26 @@ class _ExpenseTrackerAppState extends State<ExpenseTrackerApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Expense Tracker',
-      theme: ThemeData(
-        brightness: Brightness.light,
-        primarySwatch: Colors.teal,
-        scaffoldBackgroundColor: Colors.white,
-      ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        primarySwatch: Colors.teal,
-        scaffoldBackgroundColor: Colors.black,
-      ),
       themeMode: _isDarkMode ? ThemeMode.dark : ThemeMode.light,
+
+      // For Material 3 Light Theme
+      theme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.teal,
+          brightness: Brightness.light,
+        ),
+      ),
+
+      // For Material 3 Dark Theme
+      darkTheme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.teal,
+          brightness: Brightness.dark,
+        ),
+      ),
+
       home: HomeScreen(isDarkMode: _isDarkMode, onToggleTheme: _toggleTheme),
     );
   }
